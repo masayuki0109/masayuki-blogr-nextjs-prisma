@@ -26,14 +26,6 @@ const options = {
       }
       const sortedEmails = emails.sort((a, b) => b.primary - a.primary);
       profile.email = sortedEmails[0].email;
-      await prisma.user.update({
-        where: {
-          id: profile.id
-        },
-        data: {
-          ...profile
-        }
-      })
       return true
     },
   },
